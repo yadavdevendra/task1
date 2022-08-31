@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+      
+        function question(arr, field) {
+            var temp = []
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (field === "before") {
+                        if (arr[i] > arr[j]) {
+                            temp = arr[j];
+                            arr[j] = arr[i];
+                            arr[i] = temp
+                        }
+                    }
+                    else {
+                        if (arr[i] < arr[j] && arr[i] == 0) {
+                            temp = arr[j];
+                            arr[j] = arr[i];
+                            arr[i] = temp
+                        }
+                    }
+                }
+            }
+            console.log(arr)
+        }
+        //var arr = [1, 2, 4, 5, 7, 0, 0, 0, 10, 11]
+        var arr = [1, 2, 3, 4, 6, 0, 0, 0, 0]
+        question(arr, "before")
+        question(arr, "after")
+    </script>
+</body>
+
+</html>

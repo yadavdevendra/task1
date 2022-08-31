@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function test(key, value) {
+            const obj = {
+                tracked: {
+
+                },
+                untracked: {
+
+                }
+            }
+
+            for (var i = 0; i < key.length; i++) {
+                for (var j = 0; j < value.length; j++) {
+                    if (key[i] === value[j]) {
+                        Object.assign(obj.tracked, { [key[i]]: "true" });
+                        // Object.assign(obj.tracked, { [key[i]]: value[j] });
+
+                    }
+                    let selectedvalue = key.filter(item => !value.includes(item));
+                    for (let x = 0; x < selectedvalue.length; x++) {
+
+                        Object.assign(obj.untracked, { [selectedvalue[x]]: "false" },);
+                        // Object.assign(obj.untracked, { [selectedvalue[x]]: 'do not match' },);
+
+                    }
+                }
+
+            }
+            console.log(obj);
+        }
+
+        test([10, 1, 3, 4, 2], [1, 4, 2, 6, 9, 3])
+    </script>
+</body>
+
+</html>
